@@ -27,8 +27,8 @@ import glob
 Dist2Plane=5
 #your location - easy to find with google maps
 ### Must Be Changed #############
-lonhome = -84.659194
-lathome = 33.937000
+lonhome = -86.000000
+lathome = 34.000000
 # Place for html files
 report_dir = "/var/www/html/"
 # Where are the dump1090 histroy files?
