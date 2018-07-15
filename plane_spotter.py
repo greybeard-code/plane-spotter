@@ -205,7 +205,7 @@ json.dump(planedata, open(filename, 'wb'))
 
 # Update 24 hour summary html
 filename = report_dir + "psdaily-" + report_date + '.html'
-cvs_shortname = "psdaily-" + report_date + '.cvs'
+cvs_shortname = "psdaily-" + report_date + '.csv'
 cvs_filename = report_dir + cvs_shortname
 if debug:
 	print " Saving report to " + filename
@@ -216,7 +216,7 @@ cf = open(cvs_filename, 'w+')
 f.write("<html><head><title>Plane Spotter Daily</title></head><body>\n")
 f.write("<h1>Plane Spotter Daily Report for " + report_date + "</h1>\n")
 f.write("<p> This is a summary of the planes that have ADB-S installed and transmitting within " + str(Dist2Plane) + " Km of your location.\n ")
-f.write("<p> The data is also avalible as a downloadable CVS sheet - " )
+f.write("<p> The data is also avalible as a downloadable CSV sheet - " )
 f.write(" <a href=\""+ cvs_shortname +"\"> "+ cvs_shortname + "</a> \n<p><hr> ")
 #start table headers
 f.write("<table>\n")
