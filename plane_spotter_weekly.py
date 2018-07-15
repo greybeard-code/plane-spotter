@@ -15,8 +15,8 @@
 ##########################################################
 #
 # This is the weekly summary report tool. It collects the daily data json
-# and creates a weekly json file and removed the old html & cvs and creates
-# a new weekly html & cvs file
+# and creates a weekly json file and removed the old html & csv and creates
+# a new weekly html & csv file
 
 
 import json
@@ -156,24 +156,24 @@ d = now.date() - datetime.timedelta(days=7)
 enddate =  d.strftime("%Y%m%d")
 
 filename = report_dir + "psweekly-" + enddate + '.html'
-cvs_shortname = "psweekly-" + enddate + '.cvs'
-cvs_filename = report_dir + cvs_shortname
+csv_shortname = "psweekly-" + enddate + '.csv'
+csv_filename = report_dir + csv_shortname
 if debug:
 	print " Saving report to " + filename
 f = open(filename, 'w+')
-cf = open(cvs_filename, 'w+')
+cf = open(csv_filename, 'w+')
 # write file header
 #need to add sortable table script and css
 f.write("<html><head><title>Plane Spotter Weekly</title></head><body>\n")
 f.write("<h1>Plane Spotter Weekly Report for " + enddate + "</h1>\n")
 f.write("<p> This is a weekly summary of the daily reports from the past 7 days .\n ")
-f.write("<p> The data is also avalible as a downloadable CVS sheet - " )
-f.write(" <a href=\""+ cvs_shortname +"\"> "+ cvs_shortname + "</a> \n<p><hr> ")
+f.write("<p> The data is also avalible as a downloadable csv sheet - " )
+f.write(" <a href=\""+ csv_shortname +"\"> "+ csv_shortname + "</a> \n<p><hr> ")
 #start table headers
 f.write("<table>\n")
 f.write("<thead><tr><th>ICAO</th><th>Flight </th><th>Squawk </th><th>Altd. </th><th>Dist. </th>")
 f.write("<th> Category </th><th>Count </th><th>Last Seen</th></tr></thead>\n")
-# write cvs headers
+# write csv headers
 cf.write("ICAO,Flight,Squawk,Altd.,Dist.,Category,Count,Last Seen\n")
 f.write("<tbody>\n")
 for ICAOhex in sorted(planedata):
@@ -185,7 +185,7 @@ for ICAOhex in sorted(planedata):
 	f.write(string )
 	string = "<td> %s</td><td> %s</td></tr>\n" % (count, lastseen)
 	f.write(string )
-	# cvs data out
+	# csv data out
 	string = "%s,%s,%s,%s,%s,%s,%s,%s\n" % (ICAOhex ,flightname, squawk, altitude, dist, cat_codes[category],count, lastseen )
 	cf.write(string )
 # write footer

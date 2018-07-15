@@ -205,24 +205,24 @@ json.dump(planedata, open(filename, 'wb'))
 
 # Update 24 hour summary html
 filename = report_dir + "psdaily-" + report_date + '.html'
-cvs_shortname = "psdaily-" + report_date + '.csv'
-cvs_filename = report_dir + cvs_shortname
+csv_shortname = "psdaily-" + report_date + '.csv'
+csv_filename = report_dir + csv_shortname
 if debug:
 	print " Saving report to " + filename
 f = open(filename, 'w+')
-cf = open(cvs_filename, 'w+')
+cf = open(csv_filename, 'w+')
 # write file header
 #need to add sortable table script and css
 f.write("<html><head><title>Plane Spotter Daily</title></head><body>\n")
 f.write("<h1>Plane Spotter Daily Report for " + report_date + "</h1>\n")
 f.write("<p> This is a summary of the planes that have ADB-S installed and transmitting within " + str(Dist2Plane) + " Km of your location.\n ")
 f.write("<p> The data is also avalible as a downloadable CSV sheet - " )
-f.write(" <a href=\""+ cvs_shortname +"\"> "+ cvs_shortname + "</a> \n<p><hr> ")
+f.write(" <a href=\""+ csv_shortname +"\"> "+ csv_shortname + "</a> \n<p><hr> ")
 #start table headers
 f.write("<table>\n")
 f.write("<thead><tr><th>ICAO</th><th>Flight </th><th>Squawk </th><th>Altd. </th><th>Dist. </th>")
 f.write("<th> Category </th><th>Count </th><th>Last Seen</th></tr></thead>\n")
-# write cvs headers
+# write csv headers
 cf.write("ICAO,Flight,Squawk,Altd.,Dist.,Category,Count,Last Seen\n")
 f.write("<tbody>\n")
 for ICAOhex in sorted(planedata):
@@ -234,7 +234,7 @@ for ICAOhex in sorted(planedata):
 	f.write(string )
 	string = "<td> %s</td><td> %s</td></tr>\n" % (count, lastseen)
 	f.write(string )
-	# cvs data out
+	# csv data out
 	string = "%s,%s,%s,%s,%s,%s,%s,%s\n" % (ICAOhex ,flightname, squawk, altitude, dist, cat_codes[category],count, lastseen )
 	cf.write(string )
 # write footer
@@ -244,7 +244,7 @@ f.close()
 cf.close()
 
 # Update 7 day report html
-# On sundays, consolidate reports from 7 days ago to a weekly html & cvs
+# On sundays, consolidate reports from 7 days ago to a weekly html & csv
 
 
 #Clean up old files
