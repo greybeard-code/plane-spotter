@@ -30,7 +30,7 @@ import os
 ###  User Must Change These
 
 # Place for html files
-report_dir = "/var/www/html/"
+report_dir = "/var/www/html/plane-spotter/"
 # Where are the dump1090 histroy files?
 hist_dir = "/run/dump1090-mutability/"
 
