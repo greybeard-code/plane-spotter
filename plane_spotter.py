@@ -30,7 +30,7 @@ Dist2Plane=5
 lonhome = -86.000000
 lathome = 34.000000
 # Place for html files
-report_dir = "/var/www/html/"
+report_dir = "/var/www/html/plane-spotter/"
 # Where are the dump1090 histroy files?
 hist_dir = "/run/dump1090-mutability/"
 
