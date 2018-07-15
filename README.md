@@ -2,6 +2,10 @@
 Python scrips to pull history from dump1080 ADB-S and summarize planes that are close to your location
 
 ## Installation
+Setup your Rasperry Pi or computer with dump1090. Use the Mutability version of dump1090. https://github.com/mutability/dump1090
+Or use the full installer at https://www.adsbreceiver.net/, it has a easy installer for mutability's version. The current values are the default install with ADBSreciever.
+
+Once the sysem is setup and you've verified this working, install Plane-spotter.
 
 Put the two Pyhton scripts in the Pi user home or use git clone.
 
@@ -18,11 +22,15 @@ Add to the bottom of the crontab and save:
 10 * * * * python /home/pi/plane_spotter.py
 25 1 * * 1 python /home/pi/plane_spotter_weekly.py
 ```
+Create a reports directory in your html directory and give the dump1090 user permisson to create files there. If you're not using ADBSreceiver, use your html directory.
+```
+sudo mkdir /var/www/html/plane-spotter/
+sudo chmod 766  /var/www/html/plane-spotter/
+sudo chown dump1090  /var/www/html/plane-spotter/
+```
+If you're not using ADBSreciever, edit both scripts to change the html reports directory that you created above and the location of the dump1090 json data files.
 
-Edit both scripts to set the html directory for reports and the location of the dump1090 
-json data files. The current values are the default install with https://www.adsbreceiver.net/
-
-Edit the main script with your GPS location and your desired range. Find your GPS coordinates
+Edit the plane_spotter.py script with your GPS location and your desired range in kilometers. Find your GPS coordinates
 on this website: https://gps-coordinates.org/
  
 ## Future Development
