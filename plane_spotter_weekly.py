@@ -199,7 +199,7 @@ cf.close()
 #Clean up old files
 
 # create report index html
-filename = report_dir + "plane-spotter.html"
+filename = report_dir + "index.html"
 if debug:
 	print " Saving report to " + filename
 f = open(filename, 'w+')
