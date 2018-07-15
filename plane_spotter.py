@@ -266,7 +266,7 @@ f.write("<p> <h1> Weekly Reports </h1>\n")
 weeklyfiles = glob.glob(report_dir + "psweekly-*.html")
 for filename in weeklyfiles:
 	filename = filename[ len(report_dir) : -5 ]
-	f.write(" <a href =\""+ filename + ".html> " + filename +"</a> ")
+	f.write(" <a href =\""+ filename + ".html\"> " + filename +"</a> ")
 f.write("</body> </html>")
 f.close()
 ####  end   ####
