@@ -9,9 +9,9 @@ Once the sysem is setup and you've verified this working, install Plane-spotter.
 
 Put the two Pyhton scripts in the Pi user home or use git clone.
 
-Edit the crontab of the dump1090 user to add both scripts
+Edit the crontab of the root user to add both scripts (must be run as root)
 ```
-  sudo crontab -e -u dump1090
+  sudo crontab -e -u root
 ```
  - plane-spotter.py, every hour, 10 minutes after the hour (1:10, 2:20, 3:10, etc)
  - plane-spotter-weekly, once a week on Monday morning at 1:25 am
@@ -26,7 +26,7 @@ Create a reports directory in your html directory and give the dump1090 user per
 ```
 sudo mkdir /var/www/html/plane-spotter/
 sudo chmod 766  /var/www/html/plane-spotter/
-sudo chown dump1090  /var/www/html/plane-spotter/
+
 ```
 If you're not using ADBSreciever, edit both scripts to change the html reports directory that you created above and the location of the dump1090 json data files.
 
