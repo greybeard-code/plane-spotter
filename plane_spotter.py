@@ -258,12 +258,12 @@ f.write("<h1>Plane Spotter Reports </h1>\n")
 f.write("<p> Plane Spotter collects and summarizes data from dump1090 to track close-by aircraft. <br>")
 f.write("By Chainsaw-ng. <p>")
 f.write("<h1> Daily Reports </h1>\n")
-dailyfiles = glob.glob(report_dir + "psdaily-*.html")
+dailyfiles = sorted(glob.glob(report_dir + "psdaily-*.html"), reverse=True)
 for filename in dailyfiles:
 	filename = filename[ len(report_dir) : -5 ]
 	f.write(" <a href =\""+ filename + ".html\"> " + filename +"</a> ")
 f.write("<p> <h1> Weekly Reports </h1>\n")
-weeklyfiles = glob.glob(report_dir + "psweekly-*.html")
+weeklyfiles = sorted(glob.glob(report_dir + "psweekly-*.html"), reverse=True)
 for filename in weeklyfiles:
 	filename = filename[ len(report_dir) : -5 ]
 	f.write(" <a href =\""+ filename + ".html\"> " + filename +"</a> ")
