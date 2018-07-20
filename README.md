@@ -5,9 +5,9 @@ Python scrips to pull history from dump1080 ADB-S and summarize planes that are 
 Setup your Rasperry Pi or computer with dump1090. Use the Mutability version of dump1090. https://github.com/mutability/dump1090
 Or use the full installer at https://www.adsbreceiver.net/, it has a easy installer for mutability's version. The current values are the default install with ADBSreciever.
 
-Once the sysem is setup and you've verified this working, install Plane-spotter.
+Once the system is setup and you've verified this working, install Plane-spotter.
 Plane-spotter uses additional python libraries: json, yaml, math, time, glob. Most are built-in but you
-will need to install yaml ` sudo apt-get install python-yaml`
+will need to install yaml: ` sudo apt-get install python-yaml`
 
 Put the two Python scripts in the Pi user home or use git clone.
 
